@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace _MaxScholten__LJ2_DD2_SpaceShooters.Models
 {
@@ -20,11 +21,11 @@ namespace _MaxScholten__LJ2_DD2_SpaceShooters.Models
         // Constructor
         public PlayerShip(string name)
         {
-            Health = 100;
+            Health = 200;
             Score = 0;
             Speed = 5;
-            XSpeed = 0;
-            YSpeed = 0;
+            XSpeed = 10;
+            YSpeed = 10;
             FireRate = 1.0; // Example value, adjust as needed
             Friction = 0.95; // Example value, adjust as needed
             
@@ -74,7 +75,10 @@ namespace _MaxScholten__LJ2_DD2_SpaceShooters.Models
             Health -= damage;
             Console.WriteLine($"Player's ship took {damage} damage. Health: {Health}");
         }
+        
+
     }
- 
+
 }
+
 

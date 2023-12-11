@@ -1,14 +1,15 @@
 ﻿// PlayerModel.cs
 
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 public class PlayerModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    protected virtual void OnPropertyChanged(string propertyName)
+    protected void OnPropertyChanged([CallerMemberName] string? name = null)
     {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 
     private int score;

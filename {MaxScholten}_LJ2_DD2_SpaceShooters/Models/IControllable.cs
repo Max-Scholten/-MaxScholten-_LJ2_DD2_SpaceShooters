@@ -13,5 +13,7 @@ namespace _MaxScholten__LJ2_DD2_SpaceShooters.Models
         void MoveRight();
         void MoveUp();
         void MoveDown();
+        void Shoot();
+        void TakeDamage(int damage);
     }
 }

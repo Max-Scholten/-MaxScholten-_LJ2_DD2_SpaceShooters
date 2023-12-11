@@ -11,7 +11,7 @@
         d:DesignHeight="800"
         d:DesignWidth="800">
 
-    <Canvas x:Name="GameCanvas" Focusable="True" KeyDown="TestDown" KeyUp="TestUp">
+    <Canvas x:Name="GameCanvas" Focusable="True" KeyDown="OnKeyDown" KeyUp="OnKeyUp">
         <Canvas.Background>
             <ImageBrush ImageSource="/Assets/Background.png"
                         Stretch="Fill" 
@@ -33,7 +33,16 @@
         </Canvas.Triggers>
 
         <!-- PlayerShape -->
-        <Rectangle x:Name="PlayerShape" Width="60" Height="60" >
+        <Rectangle  x:Name="PlayerShip" Width="68" Height="66" Canvas.Left="366" RenderTransformOrigin="0.5,0.5" Canvas.Top="542" >
+
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/Assets/PlayerSprite.png"/>
             </Rectangle.Fill>
@@ -43,10 +52,10 @@
         <StackPanel DataContext="{Binding GameModel}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
             <TextBlock Text="{Binding Score, StringFormat='Score: {0}'}" 
                        FontSize="26" FontWeight="Bold" Foreground="White"/>
-            <TextBlock Text="{Binding PlayerModel.Name, StringFormat='Name: {0}'}" 
+            <TextBlock Text="{Binding PlayerModel.name, StringFormat='name: {0}'}" 
                        FontSize="26" FontWeight="Bold" Foreground="White" />
             <TextBlock Text="{Binding HealthPoints, StringFormat='Health: {0}'}" 
-                       FontSize="26" FontWeight="Bold" Foreground="White">
+                       FontSize="26" FontWeight="Bold" Foreground="White" Width="250">
                 <TextBlock.Style>
                     <Style TargetType="TextBlock">
                         <Style.Triggers>
